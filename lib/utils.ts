@@ -1,6 +1,5 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { NodePath } from "@babel/core";
 import * as t from "@babel/types";
 import * as Babel from "@babel/standalone";
 import * as React from "react";
@@ -42,7 +41,7 @@ return function(React, recharts, uiComponents, lucide) {
 export const importTransformerPlugin = () => ({
   name: "import-transformer",
   visitor: {
-    ImportDeclaration(path: NodePath<t.ImportDeclaration>) {
+    ImportDeclaration(path: any) {
       const source = path.node.source.value;
       const specifiers = path.node.specifiers;
 
